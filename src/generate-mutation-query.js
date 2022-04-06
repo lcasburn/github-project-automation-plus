@@ -1,3 +1,4 @@
+const core = require('@actions/core');
 /**
  * Get a list of columns for the matching project and columns names
  *
@@ -16,6 +17,8 @@ const generateMutationQuery = (data, projectName, columnName, contentId, action)
 		data.repository.owner.projects &&
 		data.repository.owner.projects.nodes) ||
 		[];
+	
+	core.debug(JSON.stringify(repoProjects));
 
 	// Find matching projects and columns for the card to move to
 	const endLocation = [...repoProjects, ...orgProjects]
