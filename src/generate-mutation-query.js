@@ -18,7 +18,15 @@ const generateMutationQuery = (data, projectName, columnName, contentId, action)
 		data.repository.owner.projects.nodes) ||
 		[];
 	
+	core.debug(`before listing repoProjects`);
 	core.debug(JSON.stringify(repoProjects));
+	core.debug(repoProjects);
+	core.debug(`after listing repoProjects`);
+
+	core.debug(`before listing orgProjects`);
+	core.debug(JSON.stringify(orgProjects));
+	core.debug(orgProjects);
+	core.debug(`after listing orgProjects`);
 
 	// Find matching projects and columns for the card to move to
 	const endLocation = [...repoProjects, ...orgProjects]
